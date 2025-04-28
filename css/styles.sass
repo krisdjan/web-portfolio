@@ -84,8 +84,10 @@ span
   max-height: 0
   overflow: hidden
   transition: max-height 0.3s ease
+  a
+    min-width: 5em
   &.open
-    max-height: 10em  /* Adjust as needed */
+    max-height: 20em  /* Adjust as needed */
  
 li
   width: 100%
@@ -200,24 +202,15 @@ a
   color: $footer-text
   padding: 0.75em 0
   text-align: center
-  max-width: $content-width
-  margin: 0 auto
-  display: grid
-  grid-template-columns: 1fr
-  grid-template-rows: auto auto
-  grid-template-areas:"copyright" "links"
- 
-p.copyright
-  grid-area: copyright
- 
-.footer-links
-  grid-area: links
-  list-style: none
-  padding: 0
-  margin: 0.75em 0
+  max-width: 100%
+  margin: 0
   display: flex
   flex-direction: column
-  align-items: center
+  li
+    list-style-type: none
+  ul
+    padding: 0
+
  
 li
   margin: 0.5em 0
@@ -225,7 +218,7 @@ li
 a
   color: $footer-text
   &:hover
-    text-decoration: underline
+    text-decoration: none
  
 
 /* Larger Screens  */
@@ -261,30 +254,35 @@ a
   a
     text-align: center
     padding: 0.5em 1em
+    min-width: 5em
  
   .hero
     grid-template-columns: 1fr 1fr
     grid-template-rows: auto
     grid-template-areas:"content visual"
     text-align: left
-    padding: 4em 0
+    padding: 4em 2em 2em 2em
   
   .hero-content
     margin-bottom: 0
+    max-width: $content-width
  
   h1.hero-title
     font-size: 2.5em
   
   p.hero-text
     font-size: 1.1em
+    margin-left: 0
   
   a.hero-button
     font-size: 1.1em
     padding: 0.8em 1.5em
+    margin-left: 0
  
   .hero-visual
     img
       max-width: 100%
+      border-radius: 10px
   
   .featured-projects
     padding: 2em 0
@@ -296,17 +294,19 @@ a
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
  
   .site-footer
-    display: grid
-    grid-template-columns: auto 1fr
-    grid-template-rows: auto
-    grid-template-areas: "copyright links"
-  
-  .footer-links
-    flex-direction: row
-    justify-content: flex-end
-    grid-template-columns: auto auto auto
-    grid-column-gap: 1em
- 
+    background-color: $footer-bg
+    color: $footer-text
+    padding: 0.75em 0
+    text-align: center
+    max-width: 100%
+    margin: 0
+    display: flex
+    li
+      display: inline
+
+
+    
+
 
 
 

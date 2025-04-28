@@ -92,8 +92,11 @@ span {
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
+.nav-links a {
+  min-width: 5em;
+}
 .nav-links.open {
-  max-height: 10em;
+  max-height: 20em;
 }
 
 li {
@@ -158,6 +161,7 @@ a.hero-button {
 a.hero-button:hover {
   background-color: #0062cc;
   color: white;
+  text-decoration: none;
 }
 
 .hero-visual {
@@ -203,7 +207,8 @@ img {
   grid-area: img;
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .project-text {
@@ -238,6 +243,7 @@ a {
 a:hover {
   background-color: #0062cc;
   color: white;
+  text-decoration: none;
 }
 
 /* Footer */
@@ -246,26 +252,16 @@ a:hover {
   color: #f8f8f8;
   padding: 0.75em 0;
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas: "copyright" "links";
-}
-
-p.copyright {
-  grid-area: copyright;
-}
-
-.footer-links {
-  grid-area: links;
-  list-style: none;
-  padding: 0;
-  margin: 0.75em 0;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.site-footer li {
+  list-style-type: none;
+}
+.site-footer ul {
+  padding: 0;
 }
 
 li {
@@ -276,7 +272,7 @@ a {
   color: #f8f8f8;
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* Larger Screens  */
@@ -312,29 +308,34 @@ a:hover {
   a {
     text-align: center;
     padding: 0.5em 1em;
+    min-width: 5em;
   }
   .hero {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas: "content visual";
     text-align: left;
-    padding: 4em 0;
+    padding: 4em 2em 2em 2em;
   }
   .hero-content {
     margin-bottom: 0;
+    max-width: 1200px;
   }
   h1.hero-title {
     font-size: 2.5em;
   }
   p.hero-text {
     font-size: 1.1em;
+    margin-left: 0;
   }
   a.hero-button {
     font-size: 1.1em;
     padding: 0.8em 1.5em;
+    margin-left: 0;
   }
   .hero-visual img {
     max-width: 100%;
+    border-radius: 10px;
   }
   .featured-projects {
     padding: 2em 0;
@@ -346,15 +347,15 @@ a:hover {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   .site-footer {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: "copyright links";
+    background-color: #333;
+    color: #f8f8f8;
+    padding: 0.75em 0;
+    text-align: center;
+    max-width: 100%;
+    margin: 0;
+    display: flex;
   }
-  .footer-links {
-    flex-direction: row;
-    justify-content: flex-end;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 1em;
+  .site-footer li {
+    display: inline;
   }
 }/*# sourceMappingURL=styles.css.map */
