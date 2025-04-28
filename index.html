@@ -1,17 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+ 
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Person Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <script src="js/menu.js" defer></script>  
 </head>
+ 
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">Ander</a></li>
-            <li><a href="#">Kristjan</a></li>
+  <header class="site-header">
+    <nav class="site-navigation">
+        <a href="index.html" class="logo">
+            <span>AA</span> &amp; <span>KS</span>
+        </a>
+        <button class="menu-toggle">  
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+  </header>
+ 
+
+  <main class="site-main">
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to Our Collaborative Portfolio</h1>
+            <p class="hero-text">We are Ander and Kristjan, a dynamic duo of web developers passionate about creating
+            innovative and user-friendly web experiences. Explore our work and get in touch to discuss your next
+            project.</p>
+            <a href="portfolio.html" class="hero-button">See Our Work</a>
+        </div>
+        <div class="hero-visual">
+            <img src="img/hero-image.svg" alt="Two developers collaborating">
+        </div>
+    </section>
+    
+    <section id="featured-projects" class="featured-projects">
+        <h2>Featured Projects</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <img src="img/project1.jpg" alt="Project 1">
+            <div class="project-text">
+                <h3>Project Title 1</h3>
+                <p>A brief description of project 1.</p>
+            </div>
+            <a href="#" class="project-link">Learn More</a>
+            </article>
+            <article class="project-card">
+                <img src="img/project2.jpg" alt="Project 2">
+                <div class="project-text">
+                    <h3>Project Title 2</h3>
+                    <p>A brief description of project 2.</p>
+                </div>
+                <a href="#" class="project-link">Learn More</a>
+            </article>
+        </div>
+    </section>
+    
+
+  </main>
+ 
+
+  <footer class="site-footer">
+  <p class="copyright">&copy; 2025 Ander & Kristjan</p>
+  <ul class="footer-links">
+  <li><a href="about.html">About Us</a></li>
+  <li><a href="portfolio.html">Portfolio</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  </ul>
+  </footer>
+ 
+
 </body>
 </html>

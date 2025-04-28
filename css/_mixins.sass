@@ -1,0 +1,16 @@
+=button-style($bg-color, $text-color)
+  background-color: $bg-color
+  color: $text-color
+  padding: 0.5em 1em
+  border: none
+  border-radius: $border-radius
+  cursor: pointer
+  transition: background-color 0.3s ease
+  &:hover
+    background-color: darken($bg-color, 10%)
+    color: white
+ 
+
+=responsive($breakpoint)
+  @media (min-width: $breakpoint)
+    @content
