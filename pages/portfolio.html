@@ -6,7 +6,9 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <script src="../js/menu.js" defer></script>   
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/comments.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 </head>
 <body>
     <header class="site-header">
@@ -28,7 +30,38 @@
         </nav>
       </header>
     <main class="site-main">
-
+    <section>
+        <hr>
+        <h1>Comments</h1>
+        <form id="commentForm" onsubmit="return false">
+            <div>
+              <label for="name">Name:</label><br>
+              <input type="text" id="name" required>
+            </div>
+          
+            <div>
+              <label for="comment">Comment:</label><br>
+              <textarea id="comment" rows="4" required></textarea>
+            </div>
+          
+            <button type="submit">Submit Comment</button>
+          </form>
+          
+          <div id="commentSection"></div>
+          
+          <!-- comment template -->
+          <template id="comment-template">
+            <div class="comment">
+                <div class="comment-details">
+                    <h4>{{name}}</h4>
+                    <h6>{{time}}</h6>
+                </div>
+              <p>{{comment}}</p>
+            </div>
+          </template>
+          
+          
+    </section>
     </main>
     <footer class="site-footer">
         <div class="copyright">

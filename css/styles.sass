@@ -26,7 +26,7 @@ img
   display: block
 
 //--------------------------------------------
-//convert site elements as reusable building blocks
+//korduvkasutatavad blokid ? 
 .card-section
   @include card-content()
   
@@ -220,7 +220,7 @@ a
   padding: 0.75em 0
   text-align: center
   max-width: 100%
-  margin: 0
+  margin: 1em 0 0 0
   display: flex
   flex-direction: column
   li
@@ -236,6 +236,38 @@ a
   color: $footer-text
   &:hover
     text-decoration: none
+
+.comment
+  background-color: #f9f9f9
+  border: 1px solid #ddd
+  border-radius: 8px
+  padding: 1rem
+  margin-top: 1rem
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+  max-width: $content-width
+
+.comment-details
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 0.5rem
+
+  h4
+    font-size: 1.1rem
+    margin: 0
+    color: #333
+
+  h6
+    font-size: 0.85rem
+    margin: 0
+    color: #666
+    font-weight: normal
+
+  p
+    margin: 0
+    color: #444
+    line-height: 1.5
+
 
 
  
@@ -318,10 +350,14 @@ a
     padding: 0.75em 0
     text-align: center
     max-width: 100%
-    margin: 0
+    margin: 1em 0 0 0
     display: flex
     li
       display: inline
+
+
+
+
 
 
     
