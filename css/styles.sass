@@ -24,6 +24,23 @@ img
   max-width: 100%
   height: auto
   display: block
+
+//--------------------------------------------
+//convert site elements as reusable building blocks
+.card-section
+  @include card-content()
+  
+
+.cardless-section
+  @include cardless-content()
+
+/* .site-main
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column */
+
+//---------------------------------------------
  
 
 /* Header */
@@ -219,6 +236,8 @@ a
   color: $footer-text
   &:hover
     text-decoration: none
+
+
  
 
 /* Larger Screens  */

@@ -27,6 +27,41 @@ img {
   display: block;
 }
 
+.card-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1200px;
+  padding: 0.75em;
+  background-color: #f4f4f4;
+  border-radius: 15px 15px 0 0;
+}
+.card-section div {
+  flex: 1;
+  text-align: center;
+  border: 0.5px solid black;
+}
+
+.cardless-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1200px;
+  padding: 0.75em;
+}
+.cardless-section div {
+  flex: 1;
+  text-align: center;
+  border: 0.5px solid black;
+}
+
+/* .site-main
+ * display: flex
+ * justify-content: center
+ * align-items: center
+ * flex-direction: column */
 /* Header */
 .site-header {
   background-color: #f8f8f8;

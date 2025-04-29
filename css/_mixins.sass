@@ -1,3 +1,5 @@
+@import 'variables'
+
 =button-style($bg-color, $text-color)
   background-color: $bg-color
   color: $text-color
@@ -15,3 +17,23 @@
 =responsive($breakpoint)
   @media (min-width: $breakpoint)
     @content
+
+=cardless-content()
+  display: flex
+  flex-direction: row
+  justify-content: center
+  gap: 1rem
+  max-width: $content-width
+  padding: 0.75em
+  div
+    flex: 1
+    text-align: center
+    border: 0.5px solid black
+
+=card-content()
+  @include cardless-content()
+  background-color: $section-bg
+  border-radius: 15px 15px 0 0
+
+  
+  
