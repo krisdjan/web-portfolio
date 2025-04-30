@@ -1,63 +1,89 @@
+// Global layout resets and fixes
+*, *::before, *::after
+  box-sizing: border-box // Use border-box sizing globally for size calcs
+
+html
+  scrollbar-gutter: stable // Reserve space for scrollbar to prevent layout shifts
+
 @import 'variables'
 @import 'mixins'
- 
-/* Base Styles (Mobile-First) */
+
+// --- Base Styles (Mobile-First) ---
+
 body
   font-family: $primary-font
-  margin: 0
+  margin: 0 // Remove default body margin
   line-height: 1.6
   color: $text-color
-  font-size: 16px
+  font-size: 16px // Set base font size
+  display: flex // Enable flex layout for sticky footer
+  flex-direction: column // Stack body children vertically
+  min-height: 100vh // Ensure body takes at least full viewport height for sticky footer
 
-h1, h2, h3
+// Basic heading styles
+h1, h2, h3, h4, h5, h6
   font-weight: bold
   color: $heading-color
+  margin-top: 0
   margin-bottom: 0.75em
- 
+
+// Base link styling
 a
   color: $accent-color
   text-decoration: none
   &:hover
     text-decoration: underline
 
+// Responsive images by default
 img
   max-width: 100%
   height: auto
   display: block
 
-//--------------------------------------------
-//korduvkasutatavad blokid ? 
-.card-section
-  @include card-content()
+
+// --- Layout Helpers ---
+
+// Centered container with max-width and side padding
+.container
+  max-width: $content-width
+  margin-left: auto
+  margin-right: auto
+  padding-left: 1em
+  padding-right: 1em
+  width: 100% // Allow shrinking below max-width
+
+// Reusable vertical padding for content sections
+.section-padding
+  padding-top: 2em
+  padding-bottom: 2em
+
+// Optional light background for sections
+.bg-light
+  background-color: $section-bg
+
+// Allow main content to expand and push footer down
+.site-main
+  flex: 1
+
   
+// ========================================
+//                 Header
+// ========================================
 
-.cardless-section
-  @include cardless-content()
-
-/* .site-main
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column */
-
-//---------------------------------------------
- 
-
-/* Header */
 .site-header
   background-color: $header-bg
   padding: 0.5em 0
- 
+  border-bottom: 1px solid darken($header-bg, 10%)
+
+// Navigation grid layout (Mobile: logo/toggle top, nav below)
 .site-navigation
   display: grid
-  grid-template-columns: auto 1fr auto  /* Logo, space, toggle */
+  grid-template-columns: auto 1fr auto  // Logo | Spacer | Toggle
   grid-template-rows: auto
-  grid-template-areas: "logo . toggle" "nav nav nav"    
+  grid-template-areas: "logo . toggle" "nav nav nav"
   align-items: center
-  max-width: $content-width
-  margin: 0 auto
-  padding: 0 1em
- 
+  // Width/centering handled by parent .container
+
 .logo
   grid-area: logo
   font-size: 1.25em
@@ -65,30 +91,26 @@ img
   color: $header-text
   text-decoration: none
   text-align: left
- 
-span
-  color: $accent-color
- 
+  span // Logo accent colors
+    color: $accent-color
+
+// Hamburger menu button
 .menu-toggle
   grid-area: toggle
   background: none
   border: none
   cursor: pointer
   padding: 0
-  display: flex
-  flex-direction: column
+  display: flex // Center icon inside button
   justify-content: center
   height: 2em
   width: 2em
   align-items: center
- 
-span
-  background-color: $header-text
-  height: 0.25em
-  width: 1.5em
-  margin: 0.2em 0
-  transition: background-color 0.3s ease, transform 0.3s ease
- 
+  // Icon styling
+  color: $header-text
+  font-size: 1.5em
+
+// Mobile navigation links container
 .nav-links
   grid-area: nav
   list-style: none
@@ -98,270 +120,379 @@ span
   flex-direction: column
   align-items: center
   width: 100%
+  // Animation setup: Hide nav initially and allow smooth transition
   max-height: 0
   overflow: hidden
   transition: max-height 0.3s ease
-  a
-    min-width: 5em
+  // Class added by JS to show the menu
   &.open
-    max-height: 20em  /* Adjust as needed */
- 
-li
-  width: 100%
-  text-align: center
- 
-a
-  color: $header-text
-  text-decoration: none
-  padding: 0.5em 1em
-  display: block
-  &:hover, &.active
-    background-color: darken($header-bg, 10%)
-    color: $accent-color
- 
+    max-height: 20em // Arbitrary large value to ensure content fits
 
-/* Hero Section */
+  // Mobile nav list items
+  li
+    width: 100%
+    text-align: center
+    border-bottom: 1px solid darken($header-bg, 5%)
+    &:last-child
+        border-bottom: none
+
+  // Mobile nav links
+  a
+    color: $header-text
+    text-decoration: none
+    padding: 0.75em 1em
+    display: block
+    min-width: 5em // Minimum tap target
+    // Hover/active state styling
+    &:hover, &.active
+      background-color: darken($header-bg, 10%)
+      color: $accent-color
+      text-decoration: none
+
+
+// ========================================
+//          Hero Section (Homepage)
+// ========================================
+
 .hero
-  display: grid
-  grid-template-columns: 1fr
-  grid-template-rows: auto auto
-  grid-template-areas:"content" "visual"
-  align-items: center
-  text-align: center
-  padding: 2em 0
-  max-width: $content-width
-  margin: 0 auto
- 
+  padding: 2em 0 // Vertical padding
+
+  // Mobile: Single column grid
+  .container
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: auto auto
+    grid-template-areas:"content" "visual"
+    align-items: center
+    text-align: center
+    gap: 1.5em
+
 .hero-content
   grid-area: content
-  margin-bottom: 1.5em
- 
-h1.hero-title
+
+.hero-title
   font-size: 2em
   margin-bottom: 0.5em
- 
-p.hero-text
+
+.hero-text
   font-size: 1em
   color: $secondary-text
   margin-bottom: 1em
-  max-width: 60ch
-  margin-left: auto
+  max-width: 60ch // Improve readability by limiting line length
+  margin-left: auto // Center text block when max-width applies
   margin-right: auto
- 
-a.hero-button
-  +button-style($accent-color, white)
+
+.hero-button
+  +button-style($accent-color, white) // Use button mixin
   font-size: 1em
   padding: 0.6em 1.2em
- 
+
 .hero-visual
   grid-area: visual
   img
-    max-width: 80%
+    max-width: 80% // Don't let image overwhelm on small screens
     height: auto
+    margin: 0 auto // Center if max-width is less than 100%
+
+
+
+
+// ========================================
+//    Featured Projects / Portfolio Grid
+// ========================================
  
 
-/* Featured Projects */
+// Section containing project grid on homepage
 .featured-projects
-  padding: 1.5em 0
-  background-color: $section-bg
-  text-align: center
-  max-width: $content-width
-  margin: 0 auto
- 
-h2
-  font-size: 1.75em
-  margin-bottom: 0.75em
- 
+  background-color: $section-bg // Distinguish section visually
+  h2
+    text-align: center
+
+// Reusable project grid layout
 .project-grid
   display: grid
-  grid-template-columns: 1fr
-  grid-gap: 1.5em
-  padding: 0 1em
- 
+  grid-template-columns: 1fr // Mobile: Single column
+  gap: 1.5em
+
+// Individual project card styling
 .project-card
   background-color: white
   border-radius: $border-radius
-  overflow: hidden
+  overflow: hidden // Ensure image respects border-radius
   box-shadow: $box-shadow
-  display: grid
-  grid-template-rows: auto 1fr auto
+  display: grid // Use grid for internal card layout
+  grid-template-rows: auto 1fr auto // Image | Text (flexible height) | Link
   grid-template-areas:"img" "text" "link"
- 
-img
-  grid-area: img
-  width: 100%
-  height: 150px
-  object-fit: cover
- 
-.project-text
-  grid-area: text
-  padding: 0 0.75em
-  text-align: left
-  max-width: 60ch
-  margin: 0 auto
- 
-h3
-  font-size: 1.25em
-  margin: 0
- 
-p
-  font-size: 0.9em
- 
-a
-  grid-area: link
-  +button-style($accent-color, white)
-  display: inline-block
-  margin: 0.75em
- 
-/* Footer */
-.site-footer
-  background-color: $footer-bg
-  color: $footer-text
-  padding: 0.75em 0
-  text-align: center
-  max-width: 100%
-  margin: 1em 0 0 0
-  display: flex
-  flex-direction: column
-  li
-    list-style-type: none
-  ul
-    padding: 0
+  text-align: left // Default alignment for card content
 
- 
-li
-  margin: 0.5em 0
- 
-a
-  color: $footer-text
-  &:hover
-    text-decoration: none
+  img // Card image
+    grid-area: img
+    width: 100%
+    height: 180px // Consistent image height
+    object-fit: cover // Ensure image covers area without distortion
 
+  .project-text // Text content area
+    grid-area: text
+    padding: 1em 1em 0.5em 1em
+    h3
+      font-size: 1.25em
+      margin-bottom: 0.25em
+    p
+      font-size: 0.9em
+      color: $secondary-text
+
+  .project-link // Link/button at bottom of card
+    grid-area: link
+    +button-style($accent-color, white) // Use button mixin
+    margin: 0 1em 1em 1em // Position within card padding
+    justify-self: start // Align button to the left of its grid area
+
+
+
+// ========================================
+//    Comments Section (Portfolio Page)
+// ========================================
+ 
+// Container for comments section
+.comments-section
+  h2
+    text-align: center
+
+// Comment submission form
+.comment-form
+  max-width: 600px // Limit form width for readability
+  margin-left: auto // Center the form block
+  margin-right: auto
+  margin-bottom: 2em
+  div // Spacing for form groups
+    margin-bottom: 1em
+  label
+    display: block // Stack label above input
+    margin-bottom: 0.25em
+    font-weight: bold
+    color: $heading-color
+  // Style text inputs and textareas consistently
+  input[type="text"], textarea
+    width: 100%
+    padding: 0.5em
+    border: 1px solid darken($section-bg, 15%)
+    border-radius: $border-radius
+    font-family: inherit
+    font-size: 1em
+  textarea
+    min-height: 80px
+    resize: vertical // Allow vertical resizing only
+  // Submit button styling
+  button[type="submit"]
+    +button-style($accent-color, white) // Use button mixin
+
+
+// Container for displayed comments
+#commentSection
+  max-width: 600px // Match form width for alignment
+  margin-left: auto
+  margin-right: auto
+
+// Individual comment styling
 .comment
-  background-color: #f9f9f9
+  background-color: #f9f9f9 // Slightly different background for contrast
   border: 1px solid #ddd
-  border-radius: 8px
-  padding: 1rem
-  margin-top: 1rem
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
-  max-width: $content-width
+  border-radius: $border-radius
+  padding: 1em
+  margin-bottom: 1rem
+  box-shadow: $box-shadow
 
-.comment-details
-  display: flex
-  justify-content: space-between
-  align-items: center
-  margin-bottom: 0.5rem
+  // Header section within a comment (name, time)
+  .comment-details
+    display: flex
+    justify-content: space-between // Push name and time apart
+    align-items: center
+    margin-bottom: 0.5rem
+    border-bottom: 1px dashed #eee // Subtle separator
+    padding-bottom: 0.5em
 
-  h4
-    font-size: 1.1rem
-    margin: 0
-    color: #333
+    h4 // Author name
+      font-size: 1.1rem
+      margin: 0
+      color: $heading-color
+    h6 // Timestamp
+      font-size: 0.85rem
+      margin: 0
+      color: $secondary-text
+      font-weight: normal
 
-  h6
-    font-size: 0.85rem
-    margin: 0
-    color: #666
-    font-weight: normal
-
-  p
-    margin: 0
-    color: #444
+  p // Comment body text
+    margin: 0.5em 0 0 0
+    color: $text-color
     line-height: 1.5
 
 
+// ========================================
+//        Contact Page Specifics
+// ========================================
 
- 
+.contact-info
+  h1, p // Center intro text
+    text-align: center
 
-/* Larger Screens  */
-+responsive(768px)
+// Grid layout for contact details
+.contact-details
+  display: grid
+  grid-template-columns: 1fr // Stack on mobile
+  gap: 1.5em
+  margin-top: 2em
+  text-align: center
+  h3
+    margin-bottom: 0.2em
+    color: $accent-color
+  p
+    margin: 0
+    font-size: 1.1em
+
+
+// ========================================
+//                  Footer
+// ========================================
+
+.site-footer
+  background-color: $footer-bg
+  color: $footer-text
+  padding: 1.5em 0
+  margin-top: 2em // Space above footer
+
+  // Mobile footer layout: stacked + centered
+  .container
+    display: grid
+    grid-template-columns: 1fr
+    gap: 1em
+    justify-items: center
+    text-align: center
+
+  .copyright
+    grid-row: 2 // Place below links on mobile
+    font-size: 0.9em
+    p
+      margin: 0
+
+  .footer-links // Footer navigation links
+    grid-row: 1 // Place above copyright on mobile
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+    li
+      margin-bottom: 0.5em // Space out stacked links
+      display: block
+    a
+      color: $footer-text
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+
+
+
+// ========================================
+//  Larger Screens / Responsive Overrides
+// ========================================
+
++responsive($breakpoint)
+
+  // Desktop navigation layout: Logo left, links right
   .site-navigation
-    grid-template-columns: auto 1fr auto  /* Logo, space, toggle */
+    grid-template-columns: auto 1fr
     grid-template-rows: auto
-    grid-template-areas: "logo nav toggle"  /* Logo left, nav center, toggle right */
+    grid-template-areas: "logo nav"
     align-items: center
- 
+    gap: 2em
+
   .menu-toggle
-    display: none  /* Hide toggle on desktop */
- 
+    display: none // Hide hamburger menu on big screen
+
+  // Desktop navigation links: Horizontal layout
   .nav-links
-    display: flex
+    display: flex // Switch to flexbox for horizontal layout
     flex-direction: row
-    justify-content: flex-end
+    justify-content: flex-end // Align links to the right
     align-items: center
     grid-area: nav
-    grid-template-columns: auto auto auto auto
-    grid-template-rows: 1fr
-    grid-column-gap: 1em
-    padding: 0
-    margin: 0
-    max-height: none
+    max-height: none // Remove mobile animation constraints
     overflow: visible
- 
-  li
-    width: auto
-    text-align: left
-    margin: 0
-  
-  a
-    text-align: center
-    padding: 0.5em 1em
-    min-width: 5em
- 
+    border: none // Remove mobile list item borders
+
+    li
+      width: auto // Allow list items to size based on content
+      text-align: left // Align text left
+      margin: 0 0 0 1em // Space out links horizontally
+      border: none
+      &:first-child
+        margin-left: 0
+
+    a // Adjust link padding/min-width if needed for desktop
+      padding: 0.5em 1em
+      min-width: auto
+
+
+  // Desktop hero layout: two columns
   .hero
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: auto
-    grid-template-areas:"content visual"
-    text-align: left
-    padding: 4em 2em 2em 2em
-  
-  .hero-content
-    margin-bottom: 0
-    max-width: $content-width
- 
-  h1.hero-title
+    padding: 4em 0 // Increase vertical padding
+
+    .container
+      grid-template-columns: 1fr 1fr // Content | Visual
+      grid-template-rows: auto
+      grid-template-areas:"content visual"
+      text-align: left // Align content left in desktop view
+      gap: 3em
+
+  .hero-title // Increase title size
     font-size: 2.5em
-  
-  p.hero-text
+
+  .hero-text // Increase text size, reset alignment helper
     font-size: 1.1em
     margin-left: 0
-  
-  a.hero-button
+
+  .hero-button // Adjust button size/padding
     font-size: 1.1em
     padding: 0.8em 1.5em
-    margin-left: 0
- 
-  .hero-visual
-    img
-      max-width: 100%
-      border-radius: 10px
-  
-  .featured-projects
-    padding: 2em 0
- 
-  h2
-    font-size: 2em
- 
-  .project-grid
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
- 
-  .site-footer
-    background-color: $footer-bg
-    color: $footer-text
-    padding: 0.75em 0
-    text-align: center
+
+  .hero-visual img // Allow visual to fill its column
     max-width: 100%
-    margin: 1em 0 0 0
-    display: flex
-    li
-      display: inline
+    border-radius: $border-radius
 
 
+  // Desktop project grid: multi-column + responsive
+  .project-grid
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) // Auto-fit columns based on min width
+    gap: 2em
 
 
+  // Desktop contact details: two columns
+  .contact-details
+    grid-template-columns: 1fr 1fr // Side-by-side layout
+    text-align: left
 
 
-    
+  // Desktop footer layout: Copyright left, links right
+  .site-footer
+    padding: 2em 0 // Increase padding
 
+    .container
+      grid-template-columns: 1fr auto // Copyright | Links
+      justify-items: start
+      align-items: center
+      text-align: left
 
+    .copyright // Ensure copyright is in the first column
+      grid-row: 1
+      grid-column: 1 / 2
 
-
+    .footer-links // Ensure links are in the second column
+      grid-row: 1
+      grid-column: 2 / 3
+      justify-self: end 
+      ul
+        display: flex // Align links horizontally
+      li
+        margin: 0 0 0 1.5em // Space links horizontally
+        display: inline-block
+        &:first-child
+          margin-left: 0

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 
 <head>
   <meta charset="UTF-8">
@@ -8,20 +7,19 @@
   <title>Two-Person Portfolio</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <script src="js/menu.js" defer></script>  
+  <script src="js/menu.js" defer></script>
+  <script src="https://kit.fontawesome.com/4542703fd4.js" crossorigin="anonymous"></script>
 </head>
- 
 
 <body>
   <header class="site-header">
-    <nav class="site-navigation">
+    <div class="container">
+      <nav class="site-navigation">
         <a href="index.html" class="logo">
             <span>AA</span> &amp; <span>KS</span>
         </a>
-        <button class="menu-toggle">  
-            <span></span>
-            <span></span>
-            <span></span>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
@@ -29,62 +27,63 @@
             <li><a href="pages/portfolio.html">Portfolio</a></li>
             <li><a href="pages/contact.html">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
   </header>
- 
 
   <main class="site-main">
     <section class="hero">
+      <div class="container">
         <div class="hero-content">
             <h1 class="hero-title">Welcome to Our Collaborative Portfolio</h1>
-            <p class="hero-text">We are Ander and Kristjan, a dynamic duo of web developers passionate about creating
-            innovative and user-friendly web experiences. Explore our work and get in touch to discuss your next
-            project.</p>
+            <p class="hero-text">We are Ander and Kristjan, a dynamic duo of web developers passionate about creating innovative and user-friendly web experiences. Explore our work and get in touch to discuss your next project.</p>
             <a href="pages/portfolio.html" class="hero-button">See Our Work</a>
         </div>
         <div class="hero-visual">
-            <img src="imgs/shutterstock.png"Two developers collaborating">
+            <img src="img/shutterstock.png" alt="Illustration of two developers collaborating on code">
         </div>
+      </div>
     </section>
-    
-    <section class="featured-projects">
+
+    <section class="featured-projects section-padding bg-light">
+      <div class="container">
         <h2>Featured Projects</h2>
         <div class="project-grid">
             <article class="project-card">
-                <img src="img/project1.jpg" alt="Project 1">
-            <div class="project-text">
-                <h3>Project Title 1</h3>
-                <p>A brief description of project 1.</p>
-            </div>
-            <a href="#" class="project-link">Learn More</a>
-            </article>
-            <article class="project-card">
-                <img src="img/project2.jpg" alt="Project 2">
+                <img src="img/project1.jpg" alt="Screenshot of Project 1">
                 <div class="project-text">
-                    <h3>Project Title 2</h3>
-                    <p>A brief description of project 2.</p>
+                    <h3>Project Title 1</h3>
+                    <p>A brief description highlighting the key features or technologies used in project 1.</p>
                 </div>
                 <a href="#" class="project-link">Learn More</a>
             </article>
-        </div>
+            <article class="project-card">
+                <img src="img/project2.jpg" alt="Screenshot of Project 2">
+                <div class="project-text">
+                    <h3>Project Title 2</h3>
+                    <p>A brief description highlighting the key features or technologies used in project 2.</p>
+                </div>
+                <a href="#" class="project-link">Learn More</a>
+            </article>
+            </div>
+      </div>
     </section>
-    
-
   </main>
 
   <footer class="site-footer">
-    <div class="copyright">
-        <p>&copy; 2025 Ander & Kristjan</p>
-    </div>
-    <div class="footer-links">
-        <ul>
-            <li><a href="pages/about.html">About Us</a></li>
-            <li><a href="pages/portfolio.html">Portfolio</a></li>
-            <li><a href="pages/contact.html">Contact</a></li>
-        </ul>
+    <div class="container">
+      <div class="copyright">
+          <p>&copy; 2025 Ander & Kristjan</p>
+      </div>
+      <div class="footer-links">
+          <ul>
+              <li><a href="pages/about.html">About Us</a></li>
+              <li><a href="pages/portfolio.html">Portfolio</a></li>
+              <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+      </div>
     </div>
   </footer>
- 
 
 </body>
 </html>

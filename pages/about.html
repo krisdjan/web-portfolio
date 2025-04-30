@@ -5,59 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <script src="../js/menu.js" defer></script>  
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <script src="../js/menu.js" defer></script>
+    <script src="https://kit.fontawesome.com/4542703fd4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="site-header">
-        <nav class="site-navigation">
-            <a href="../index.html" class="logo">
-                <span>AA</span> &amp; <span>KS</span>
-            </a>
-            <button class="menu-toggle">  
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav class="site-navigation">
+                <a href="../index.html" class="logo">
+                    <span>AA</span> &amp; <span>KS</span>
+                </a>
+                <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
       </header>
 
       <main class="site-main">
-            <section class="cardless-section">
-                <div>
-                    <h1>div1</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni eligendi id aut sunt suscipit. Ratione velit, officiis corrupti quia unde, ea tenetur incidunt vero, minus non sed earum ullam quidem! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas amet, vitae corrupti beatae eaque dicta veritatis impedit adipisci voluptate itaque, ut unde. Aspernatur atque dolore consequuntur amet provident nesciunt harum.</p>
-                </div>
-                <div>
-                    <h1>div2</h1>
-                </div>
+            <section class="about-intro section-padding">
+                <div class="container">
+                    <h1>About Ander & Kristjan</h1>
+                    <p>We are passionate web developers based in Estonia, specializing in creating modern, responsive, and user-friendly websites and web applications. Learn more about our skills and approach below.</p>
+                    </div>
             </section>
-            <section class="card-section">
-                <div>
-                    <h1>card</h1>
-                </div>
-                <div>
-                    <h1>card</h1>
-                </div>
-                <div>
-                    <h1>card</h1>
-                </div>
+
+            <section class="team-details section-padding bg-light">
+               <div class="container">
+                  <h2>Our Skills</h2>
+                  <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1em; text-align: center;">
+                     <div class="skill-item" style="background: white; padding: 1em; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">HTML5</div>
+                     <div class="skill-item" style="background: white; padding: 1em; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">CSS3 & Sass</div>
+                     <div class="skill-item" style="background: white; padding: 1em; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">JavaScript</div>
+                     <div class="skill-item" style="background: white; padding: 1em; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Responsive Design</div>
+                     <div class="skill-item" style="background: white; padding: 1em; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Git & Version Control</div>
+                     </div>
+               </div>
             </section>
-      </main>
+            </main>
 
       <footer class="site-footer">
-        <p class="copyright">&copy; 2025 Ander & Kristjan</p>
-        <ul class="footer-links">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Ander & Kristjan</p>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+      </footer>
 </body>
 </html>
