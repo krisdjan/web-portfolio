@@ -29,20 +29,20 @@ nice to have in code maybe:
 js functionality
 animations maybe
 
-mis tegin:
 
-about.html -> proovisin teha nagu korduvkasutatavad mixinid, mida saaks kasutada terve lehe vältel äkki aga pole otseselt kindel, kui hästi seda implementeerida saab. See on praegu lihtsalt flex stiilis.
-    mixins.sass - cardless_content() ja card_content()
-    styles.sass - rida 29, index.htmlis oli "site-main" klass aga sellele polnud midagi määratud, mängisin sellega natuke.
-    
+--Probleemid--
+    PORTFOLIO:
+        -pikad kommentaarid overflowivad
+    CONTACT:
+        -form submit ei tööta (pole kindel kas on vaja see töötavaks teha või mitte)
+        
 
-portfolio.html -> panin enne footerit kommenteerimise formi, kasutasin loengus tehtud handlebars.js-i (11.tund iseseisvatöö alt leiab)
-    styles.sass - rida 240 natukene stiili
-    comments.js - kommentaari lisamise script
 
-peamine asi mis praegu vajaks lahendust on see kuidas maini struktuuri paika paneme, ma praegu ei tahtnud täielikult flexis ka teha, sest see ei tundu nii paindlik.
-edasi saaks lihtsalt kasutada neid mixine näiteks. ja lihtsalt ehitada. mdea need minu mõtted praegu. ¯\_(ツ)_/¯
-
+--Nitpicking detailid--
+    ABOUT:
+        -mobiili vaates pildid ei lähe keskele
+    CONTACT:
+        -lingid võiksid vb nupud olla, sest mobiilis raske vajutada 
 
 
 
