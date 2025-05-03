@@ -2,7 +2,7 @@
 *, *::before, *::after
   box-sizing: border-box // Use border-box sizing globally for size calcs
 
-// html
+// html // Commented out as per user's file
 //   scrollbar-gutter: stable // Reserve space for scrollbar to prevent layout shifts
 
 
@@ -68,7 +68,7 @@ img
 .site-main
   flex: 1
 
-  
+
 // ========================================
 //                 Header
 // ========================================
@@ -210,15 +210,20 @@ img
     justify-content: center
     img
       margin-bottom: 2rem
+
 // ========================================
 //    Featured Projects / Portfolio Grid
 // ========================================
- 
 
 // Section containing project grid on homepage
 .featured-projects
   background-color: $section-bg // Distinguish section visually
   h2
+    text-align: center
+
+// Styles for the portfolio gallery section (no background here by default)
+.portfolio-gallery
+  h1, p // Example: Center intro text on portfolio page
     text-align: center
 
 // Reusable project grid layout
@@ -276,7 +281,7 @@ img
   aspect-ratio: 16 / 9 // Or 4 / 3, depending on your images
   overflow: hidden
   a
-    text-decoration: none 
+    text-decoration: none
 
   img
     width: 100%
@@ -311,11 +316,10 @@ img
     right: 10px
 
 
-
 // ========================================
 //    Comments Section (Portfolio Page)
 // ========================================
- 
+
 // Container for comments section
 .comments-section
   h2
@@ -354,7 +358,6 @@ img
     +button-style($accent-color, white)
 
 
-
 // Container for displayed comments
 #commentSection
   max-width: 600px // Match form width for alignment
@@ -380,7 +383,7 @@ img
     padding-bottom: 0.5em
     flex-wrap: wrap
     overflow-wrap: anywhere
-    word-break: break-word  
+    word-break: break-word
 
     h4 // Author name
       font-size: 1.1rem
@@ -408,25 +411,16 @@ img
   h1, p
     text-align: center
 
-.contact-details
+.contact-details // Mobile uses this layout too now
   display: grid
-  grid-template-columns: 1fr 1fr
-  grid-template-rows: auto auto
-  gap: 2em
+  grid-template-columns: 1fr // Single column for mobile
+  grid-template-rows: auto auto auto // Adjust rows if needed
+  gap: 1.5em // Adjusted gap for mobile
   margin: 2em 0
   text-align: center
 
-  .email
-    grid-column: 1
-  .links
-    grid-column: 2
-  #location
-    grid-column: 1 / 3
-    display: flex
-    flex-direction: column
-    align-items: center
-    p
-      margin-bottom: 1em
+  #location // Adjust spacing for map if present
+    margin-bottom: 1em // Add bottom margin if needed
 
   h3
     margin-bottom: 0.3em
@@ -436,12 +430,15 @@ img
     margin: 0
     font-size: 1.1em
 
-  .social-links
-    display: flex
-    flex-direction: column
-    row-gap: 0.5em
-
-
+  // Ensure social links within contact page also stack nicely if needed
+  .social-links // Assuming you might have social links here too
+    ul
+      list-style: none
+      padding: 0
+      margin: 0.5em 0 0 0 // Add space above if needed
+      li
+        display: inline-block
+        margin: 0 0.5em
 
 
 // ========================================
@@ -453,36 +450,58 @@ img
   color: $footer-text
   padding: 1.5em 0
 
-  // Mobile footer layout: stacked + centered
+  // Mobile footer layout: Nav Links (top) | Social Links (mid) | Copyright (bottom) - all centered
   .container
     display: grid
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr // Single column centers content
+    grid-template-rows: auto auto auto // Explicit rows for ordering
+    grid-template-areas: "nav" "social" "copy" // Define areas
     gap: 1em
-    justify-items: center
-    text-align: center
-
-  .copyright
-    grid-row: 2 // Place below links on mobile
-    font-size: 0.9em
-    p
-      margin: 0
+    justify-items: center // Center grid items horizontally
+    text-align: center // Center text within items
 
   .footer-links // Footer navigation links
-    grid-row: 1 // Place above copyright on mobile
+    grid-area: nav // Assign to top area
     ul
       list-style: none
       padding: 0
       margin: 0
     li
       margin-bottom: 0.5em // Space out stacked links
-      display: block
+      display: block // Ensure links stack
+      &:last-child
+        margin-bottom: 0
     a
       color: $footer-text
       text-decoration: none
       &:hover
         text-decoration: underline
 
-  
+  // *** ADDED/MODIFIED FOR SOCIAL LINKS ***
+  .social-links
+    grid-area: social // Assign to middle area
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+    li
+      display: inline-block // Display icons horizontally
+      margin: 0 0.5em // Add spacing between icons
+    a
+      color: $footer-text
+      text-decoration: none
+      font-size: 1.4em // Make icons larger
+      transition: color 0.3s ease
+      &:hover
+        color: darken($footer-text, 15%)
+        text-decoration: none
+
+  .copyright // Copyright notice styling
+    grid-area: copy // Assign to bottom area
+    font-size: 0.9em
+    p
+      margin: 0
+
 
 // ========================================
 //  Larger Screens / Responsive Overrides
@@ -549,7 +568,7 @@ img
 
   .hero-visual img // Allow visual to fill its column
     max-width: 100%
-    border-radius: $border-radius
+    // border-radius: $border-radius // Removed image border radius here
 
 
   // Desktop project grid: multi-column + responsive
@@ -558,48 +577,87 @@ img
     gap: 2em
 
 
-  // Desktop contact details: two columns
+  // Desktop contact details: two columns, different layout
   .contact-details
-    grid-template-columns: 1fr 1fr // Side-by-side layout
-    text-align: center
+    grid-template-columns: 1fr 1fr // Keep 2 columns for email/links
+    grid-template-rows: auto auto // Rows for details and then map/location
+    gap: 2em // Keep gap
+    text-align: left // Align text left now
+
+    .email // Ensure items go in correct columns
+      grid-column: 1
+      grid-row: 1
+      p
+        text-align: left
+    .links
+      grid-column: 2
+      grid-row: 1
+      a
+        font-size: 1.6em
+      
+
+    #location // Span location/map across bottom row
+      grid-column: 1 / 3
+      grid-row: 2
+      align-items: start // Align map content to top if needed
+      p // Reset any centering on paragraph if needed
+        text-align: left
 
 
-  // Desktop footer layout: Copyright left, links right
+  // Desktop footer layout: Social Left | Copyright Mid | Nav Right
   .site-footer
     padding: 2em 0 // Increase padding
 
     .container
-      grid-template-columns: 1fr auto // Copyright | Links
-      justify-items: start
+      // Define 3 columns: auto for copy, auto for social, 1fr for nav (flexible)
+      grid-template-columns: auto auto 1fr
+      grid-template-rows: auto // Single row
+      grid-template-areas: "social copy nav"
+      gap: 0 
       align-items: center
       text-align: left
 
-    .copyright // Ensure copyright is in the first column
-      grid-row: 1
-      grid-column: 1 / 2
+    .copyright // Place copyright in the first area/column
+      grid-area: copy
+      justify-self: start // Align block to the start (left)
+      text-align: left // Align text left
+      margin-left: 1.5em
+      p // Ensure paragraph has no extra margin interfering
+        margin: 0
 
-    .footer-links // Ensure links are in the second column
-      grid-row: 1
-      grid-column: 2 / 3
-      justify-self: end 
+    .social-links
+      grid-area: social
+      justify-self: start
+
       ul
-        display: flex // Align links horizontally
+        li
+          margin: 0 0.5em 0 0 // Only right margin needed now between icons
+          &:last-child
+            margin-right: 0
+
+    .footer-links // Place nav links in the third area/column
+      grid-area: nav
+      justify-self: end
+      ul
+        display: flex
       li
-        margin: 0 0 0 1.5em // Space links horizontally
+        margin: 0 0 0 1.5em // Space links using left margin
         display: inline-block
         &:first-child
           margin-left: 0
 
-  //see on vb veits horrible
+
+  // Desktop About page individual intro layout
+
   .individual-introduction
-    .container              
+    .container
       display: flex
       flex-direction: column
       gap: 2rem
 
       .profile-intro
         display: grid
-        grid-template-columns: 1fr auto
+        grid-template-columns: 1fr auto // Text left, image right
         align-items: center
         gap: 1rem
         text-align: left
@@ -610,9 +668,6 @@ img
 
         img
           grid-column: 2
-          width: 350px
+          width: 350px // Fixed width for profile images on desktop? Adjust as needed
           height: auto
-          margin-bottom: 0
-
-
-  
+          margin-bottom: 0 // Remove mobile margin
