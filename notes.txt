@@ -37,8 +37,6 @@ animations maybe
 
 
 --Nitpicking detailid--
-    ABOUT:
-        -mobiili vaates pildid ei lähe keskele
     CONTACT:
         -lingid võiksid vb nupud olla, sest mobiilis raske vajutada 
     PORTFOLIO:
