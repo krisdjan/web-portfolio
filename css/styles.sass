@@ -3,7 +3,8 @@
   box-sizing: border-box // Use border-box sizing globally for size calcs
 
 // html
-//    scrollbar-gutter: stable // Reserve space for scrollbar to prevent layout shifts
+//   scrollbar-gutter: stable // Reserve space for scrollbar to prevent layout shifts
+
 
 @import 'variables'
 @import 'mixins'
@@ -150,6 +151,7 @@ img
       background-color: darken($header-bg, 10%)
       color: $accent-color
       text-decoration: none
+      border-radius: $border-radius
 
 
 // ========================================
@@ -197,8 +199,17 @@ img
     margin: 0 auto // Center if max-width is less than 100%
 
 
-
-
+// ========================================
+//    About page (mobile view specifics)
+// ========================================
+.individual-introduction
+  .profile-intro
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+    img
+      margin-bottom: 2rem
 // ========================================
 //    Featured Projects / Portfolio Grid
 // ========================================
@@ -248,6 +259,56 @@ img
     +button-style($accent-color, white) // Use button mixin
     margin: 0 1em 1em 1em // Position within card padding
     justify-self: start // Align button to the left of its grid area
+
+
+// ========================================
+//    Slideshow Styling
+// ========================================
+
+.slideshow-container
+  position: relative
+  max-width: 100%
+  margin: 2rem auto
+  overflow: hidden
+  border-radius: 8px
+  position: relative
+  width: 100%
+  aspect-ratio: 16 / 9 // Or 4 / 3, depending on your images
+  overflow: hidden
+  a
+    text-decoration: none 
+
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    border-radius: 8px
+    display: block
+
+
+  .prev,
+  .next
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    font-size: 2rem
+    color: white
+    background-color: rgba(0, 0, 0, 0.2)
+    border-radius: $border-radius
+    padding: 0.5rem 1rem
+    cursor: pointer
+    user-select: none
+    z-index: 10
+    transition: background-color 0.3s ease
+
+    &:hover
+      background-color: rgba(0, 0, 0, 0.8)
+
+  .prev
+    left: 10px
+
+  .next
+    right: 10px
 
 
 
@@ -317,6 +378,9 @@ img
     margin-bottom: 0.5rem
     border-bottom: 1px dashed #eee // Subtle separator
     padding-bottom: 0.5em
+    flex-wrap: wrap
+    overflow-wrap: anywhere
+    word-break: break-word  
 
     h4 // Author name
       font-size: 1.1rem
@@ -332,6 +396,8 @@ img
     margin: 0.5em 0 0 0
     color: $text-color
     line-height: 1.5
+    word-break: break-word
+    overflow-wrap: anywhere
 
 
 // ========================================
@@ -524,6 +590,7 @@ img
         &:first-child
           margin-left: 0
 
+  //see on vb veits horrible
   .individual-introduction
     .container              
       display: flex
@@ -535,6 +602,7 @@ img
         grid-template-columns: 1fr auto
         align-items: center
         gap: 1rem
+        text-align: left
 
         h1,
         p
@@ -544,6 +612,7 @@ img
           grid-column: 2
           width: 350px
           height: auto
+          margin-bottom: 0
 
 
   

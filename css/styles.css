@@ -133,6 +133,7 @@ img {
   background-color: #dfdfdf;
   color: #007bff;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .hero {
@@ -192,6 +193,16 @@ img {
   max-width: 80%;
   height: auto;
   margin: 0 auto;
+}
+
+.individual-introduction .profile-intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.individual-introduction .profile-intro img {
+  margin-bottom: 2rem;
 }
 
 .featured-projects {
@@ -254,6 +265,56 @@ img {
   background-color: #0062cc;
   color: white;
   text-decoration: none;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.slideshow-container a {
+  text-decoration: none;
+}
+.slideshow-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.slideshow-container .prev,
+.slideshow-container .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+.slideshow-container .prev:hover,
+.slideshow-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.slideshow-container .prev {
+  left: 10px;
+}
+.slideshow-container .next {
+  right: 10px;
 }
 
 .comments-section h2 {
@@ -326,6 +387,9 @@ img {
   margin-bottom: 0.5rem;
   border-bottom: 1px dashed #eee;
   padding-bottom: 0.5em;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .comment .comment-details h4 {
   font-size: 1.1rem;
@@ -342,6 +406,8 @@ img {
   margin: 0.5em 0 0 0;
   color: #444;
   line-height: 1.5;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .contact-info h1, .contact-info p {
@@ -529,6 +595,7 @@ img {
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 1rem;
+    text-align: left;
   }
   .individual-introduction .container .profile-intro h1,
   .individual-introduction .container .profile-intro p {
@@ -538,5 +605,6 @@ img {
     grid-column: 2;
     width: 350px;
     height: auto;
+    margin-bottom: 0;
   }
 }/*# sourceMappingURL=styles.css.map */

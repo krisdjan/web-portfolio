@@ -8,8 +8,9 @@
     <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <script src="../js/menu.js" defer></script>
     <script src="../js/comments.js" defer></script>
+    <script src="../js/slideshow.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="https://kit.fontawesome.com/4542703fd4.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4542703fd4.js" crossorigin="anonymous"></script>   
 </head>
 <body>
     <header class="site-header">
@@ -53,22 +54,40 @@
                    </div>
             </div>
         </section>
-        <section>
-            <article>
-                <h1 id="project1">project 1</h1>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="slideshow-container" id="project1">
+                    <div class="slide fade">
+                      <img src="../img/image1.webp" alt="Screenshot 1">
+                    </div>
+                    <div class="slide fade">
+                      <img src="../img/image2.webp" alt="Screenshot 2">
+                    </div>
+                    <div class="slide fade">
+                      <img src="../img/image3.webp" alt="Screenshot 3">
+                    </div>
+                  
+                    <a class="prev" onclick="changeSlide(-1)"><</a>
+                    <a class="next" onclick="changeSlide(1)">></a>
+                </div>
+                <h1>project 1</h1>
                 <p>
                     TaskTracker is a sleek, responsive to-do list application designed for users who value clarity, focus, and simplicity.
                     It allows individuals to manage their daily tasks with ease, offering a frictionless experience across devices.
                     Built with React, TypeScript, and CSS Modules, the app stores data locally using the Web Storage API,
                     ensuring that users can access their tasks even without an internet connection.
                 </p>
-                    
-            </article>
-            <article>
+
+            </div>
+        </section>
+        <section class="section-padding">
+            <div class="container">
                 <h1 id="project2">project 2</h1>
                 <p>bomnom</p>
-            </article>
+            </div>
         </section>
+
 
         <section class="comments-section section-padding bg-light">
             <div class="container">
