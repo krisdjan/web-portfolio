@@ -27,14 +27,14 @@ Veebileht on ehitatud "mobile-first" lähenemisega ning kasutab kaasaegseid HTML
 * Handlebars.js: Dünaamilise sisu mallide jaoks
 
 ## Projekti Struktuur
-.
-├── css/              # Sassi lähtefailid & kompileeritud CSS
-├── img/              # Veebilehe pildid (logod, projektipildid jne)
-├── js/               # JavaScript failid funktsionaalsuseks
-├── pages/            # Alamlehed (about.html, contact.html, portfolio.html)
-├── prototypes/       # Lo-fi prototüüpide ekraanipildid
-├── index.html        # Avaleht
-└── README.md         # Projekti kirjeldus
+ 
+* css/              # Sassi lähtefailid & kompileeritud CSS
+* img/              # Veebilehe pildid (logod, projektipildid jne)
+* js/               # JavaScript failid funktsionaalsuseks
+* pages/            # Alamlehed (about.html, contact.html, portfolio.html)
+* prototypes/       # Lo-fi prototüüpide ekraanipildid
+* index.html        # Avaleht
+* README.md         # Projekti kirjeldus
 
 ## Autorid
 
